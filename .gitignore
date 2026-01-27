@@ -1,3 +1,6 @@
 data.json
 .vscode/
+.gemini/
+.venv/
 embeddings/
+gha-creds-*.json

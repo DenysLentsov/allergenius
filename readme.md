@@ -9,7 +9,7 @@ An AI-powered tool that analyzes food ingredient lists and identifies potential 
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.11
 - [Ollama](https://ollama.ai/) installed locally
 - At least 8GB RAM recommended
 - Windows/Linux/macOS supported
@@ -18,33 +18,33 @@ An AI-powered tool that analyzes food ingredient lists and identifies potential 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/nutritics/allergens.git
-cd allergens
+git clone https://github.com/nutritics/allergenius.git
+cd allergenius
 ```
 
 2. Create and activate virtual environment:
 ```bash
-python -m venv venv
-.\venv\Scripts\activate  # Windows
-source venv/bin/activate # Linux/macOS
+uv venv  --python 3.11
+source .venv/bin/activate # Linux/macOS
+.venv\Scripts\activate   # Windows
 ```
 
 3. Install dependencies:
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
 
 4. Pull required models using Ollama:
 ```bash
-ollama pull nomic-embed-text
-ollama pull llama3.2
+ollama pull embeddinggemma:latest
+ollama pull gemma3:latest
 ```
 
 ## Usage
 1. Prepare your ingredient data in JSON format (add data.json in root directory)
 2. Run the main script:
 ```bash
-python main.py
+uv run main.py
 ```
 3. Enter ingredient list when prompted
 

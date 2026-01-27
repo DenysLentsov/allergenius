@@ -176,14 +176,13 @@ def main():
     3.RULES:
     - Match allergens case-insensitively
     - Maintain original text formatting
-    4.OUTPUT: return only original text with each allergen word wrapped in <b> tags separately
-    5.EXAMPLES: """
+    4.OUTPUT: return only original text with each allergen word wrapped in <b> tags separately """
 
     file_path = "data.json"
     quids = parse_file(file_path)
-    embeddings = get_embeddings("embeddings.json", "nomic-embed-text", quids[:5000])
+    embeddings = get_embeddings("embeddings.json", "embeddinggemma", quids[:5000])
     prompt = input("Enter the ingredient list -> ")
-    prompt_embedding = ollama.embeddings(model="nomic-embed-text", prompt=prompt)["embedding"]
+    prompt_embedding = ollama.embeddings(model="embeddinggemma", prompt=prompt)["embedding"]
     most_similar_chunks = find_most_similar(prompt_embedding, embeddings)[:5]
     # for item in most_similar_chunks:
     #     print(item[0], quids[item[1]])
@@ -192,7 +191,7 @@ def main():
     print("Generating response:")
     with alive_bar(spinner='dots') as bar:
         response = ollama.chat(
-            model="llama3.2",
+            model="gemma3",
             messages=[
                 {
                     "role": "system",
