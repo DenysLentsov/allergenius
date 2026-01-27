@@ -1,12 +1,20 @@
 name: '🔎 Gemini Review'
 
 on:
-  workflow_call:
+  # workflow_call:
+  #   inputs:
+  #     additional_context:
+  #       type: 'string'
+  #       description: 'Any additional context from the request'
+  #       required: false
+  workflow_dispatch: # Enables the "Run Workflow" button
     inputs:
       additional_context:
-        type: 'string'
-        description: 'Any additional context from the request'
+        description: 'Any additional context for the review'
         required: false
+        type: string
+  issue_comment:     # Enables triggering via "/review" comments
+    types: [created]
 
 concurrency:
   group: '${{ github.workflow }}-review-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number }}'
