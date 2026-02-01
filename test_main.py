@@ -14,6 +14,9 @@ class TestAllergenius(unittest.TestCase):
     # --- parse_file tests ---
     @patch("builtins.open", new_callable=mock_open, read_data='{"data": [{"QUID": "ingredient 1"}, {"QUID": "ingredient 2"}]}')
     def test_parse_file_success(self, mock_file):
+        """Tests successful parsing of a valid JSON file."""
+        result = main.parse_file("dummy.json")
+        self.assertEqual(result, ["ingredient 1", "ingredient 2"])
         result = main.parse_file("dummy.json")
         self.assertEqual(result, ["ingredient 1", "ingredient 2"])
 
