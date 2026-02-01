@@ -4,3 +4,4 @@ data.json
 .venv/
 embeddings/
 gha-creds-*.json
+__pycache__/

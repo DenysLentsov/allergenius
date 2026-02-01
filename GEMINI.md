@@ -41,6 +41,12 @@ This project uses `uv` for modern Python package management.
     ```
 3.  Enter an ingredient list when prompted.
 
+### Testing
+Run unit tests with:
+```bash
+uv run python -m unittest test_main.py
+```
+
 ## Development Conventions
 *   **Style**: Follows standard Python (PEP 8) conventions.
 *   **Embeddings**: Embeddings are cached in `embeddings.json` inside the `embeddings/` folder. Delete this folder to force regeneration.
