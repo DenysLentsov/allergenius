@@ -2,7 +2,11 @@ import unittest
 from unittest.mock import patch, mock_open, MagicMock, call
 import json
 import os
-import numpy as np
+import unittest
+from unittest.mock import patch, mock_open, MagicMock, call
+import json
+import os
+import main
 import main
 
 class TestAllergenius(unittest.TestCase):
