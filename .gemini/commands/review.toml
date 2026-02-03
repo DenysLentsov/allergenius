@@ -1,0 +1,14 @@
+description = "Analyze code for quality, security, and style issues."
+prompt = """
+You are an expert code reviewer. Review the provided code changes for:
+1.  **Bugs & Logic Errors**: Identify any potential runtime errors or logical flaws.
+2.  **Security Vulnerabilities**: Check for injection risks, insecure data handling, or unsafe dependencies.
+3.  **Code Style & Standards**: Ensure adherence to PEP 8 and project conventions (see GEMINI.md).
+4.  **Performance**: Point out any inefficient algorithms or unnecessary resource usage.
+5.  **Test Coverage**: specific check if the changes are adequately tested.
+
+Provide constructive feedback with specific line references and suggested fixes.
+
+Here are the changes:
+!{git diff main...HEAD}
+"""
