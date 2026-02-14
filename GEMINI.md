@@ -51,3 +51,10 @@ uv run python -m unittest test_main.py
 *   **Style**: Follows standard Python (PEP 8) conventions.
 *   **Embeddings**: Embeddings are cached in `embeddings.json` inside the `embeddings/` folder. Delete this folder to force regeneration.
 *   **Input Data**: The parser specifically looks for a `data` list containing objects with a `QUID` key in `data.json`.
+
+## Code Review Guidelines
+*   **Security**: Scrutinize input handling, especially for `data.json` parsing and LLM prompts. Ensure no sensitive data is logged.
+*   **Performance**: Watch for inefficient loops in `main.py`, specifically during embedding generation and similarity search.
+*   **Testing**: Ensure new logic is covered by unit tests in `test_main.py`.
+*   **Readability**: Maintain clear variable naming and structure, consistent with existing code.
+*   **Dependencies**: Verify that any new dependencies are added to `requirements.txt` and are necessary.
